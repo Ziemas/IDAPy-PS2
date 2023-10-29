@@ -18,7 +18,7 @@ def FindBytes(startEA, endEA, data):
         # Check for the search pattern.
         found = True
         for x in range(len(data)):
-            if idc.Byte(i + x) != data[x]:
+            if idc.get_wide_byte(i + x) != data[x]:
                 found = False
                 break
                 
@@ -46,10 +46,10 @@ def MakeAndGetString(ea, length=-1, comment=None):
 
     # Check if the comment is valid and if so place it at the address.
     if comment is not None:
-        idc.MakeComm(ea, comment)
+        idc.set_cmt(ea, comment, 0)
 
     # Get the string value.
-    return idc.GetString(ea, length).replace('\x00','')
+    return ida_bytes.get_strlit_contents(ea, length, ida_nalt.STRTYPE_C).decode("UTF-8").replace('\x00','')
     
     
 def MakeAndGetWord(ea, comment=None):
@@ -61,14 +61,14 @@ def MakeAndGetWord(ea, comment=None):
     """
 
     # Make the word value.
-    idc.MakeWord(ea)
+    ida_bytes.create_data(ea, FF_WORD, 2, ida_idaapi.BADADDR)
 
     # Check if the comment is valid and if so place it at the address.
     if comment is not None:
-        idc.MakeComm(ea, comment)
+        idc.set_cmt(ea, comment, 0)
 
     # Get the word value.
-    return idc.Word(ea)
+    return idc.get_wide_word(ea)
     
     
 def ModuleVersionToStr(version):
@@ -93,12 +93,16 @@ def GetModuleFunctionList(moduleName, version):
     # Parse and return json file.
     moduleDefinition = json.load(jsonFile)
     jsonFile.close()
-    
+
+    version = float(ModuleVersionToStr(version))
+    print("version " + str(version))
+
     # Try to find the newest version of the exports for the module.
     highestVersion = 0
     for key in moduleDefinition:
-    
-        if key >= version and key > highestVersion:
+
+        #if float(key) >= version and float(key) > highestVersion:
+        if float(key) > float(highestVersion):
             highestVersion = key
             
     # Use the newest export list found.
@@ -106,23 +110,23 @@ def GetModuleFunctionList(moduleName, version):
         return moduleDefinition[highestVersion]
         
     # A suitable module definition for the specified version was not found.
-    print("No module definition for '%s' suitable for v%s was found" % (moduleName, ModuleVersionToStr(version)))
+    print("No module definition for '%s' suitable for v%s was found" % (moduleName, version))
     return None
     
     
 def LabelImportTable(tableEa):
 
     # Format the import table descriptor.
-    #print("Found at 0x%08x" % tableEa)
-    idc.MakeDword(tableEa)
-    idc.MakeDword(tableEa + 4)
+    print("Found at 0x%08x" % tableEa)
+    ida_bytes.create_data(tableEa, FF_DWORD, 4, ida_idaapi.BADADDR)
+    ida_bytes.create_data(tableEa + 4, FF_DWORD, 4, ida_idaapi.BADADDR)
     version = MakeAndGetWord(tableEa + 8)
-    idc.MakeWord(tableEa + 10)
+    ida_bytes.create_data(tableEa + 10, FF_DWORD, 4, ida_idaapi.BADADDR)
     
-    idc.MakeUnkn(tableEa + 12, 4)
-    idc.MakeUnkn(tableEa + 12 + 4, 4)
+    #idc.MakeUnkn(tableEa + 12, 4)
+    #idc.MakeUnkn(tableEa + 12 + 4, 4)
     importModuleName = MakeAndGetString(tableEa + 12, 8)
-    idc.MakeNameEx(tableEa, importModuleName + "_stub", idc.SN_NON_PUBLIC)
+    idc.set_name(tableEa, importModuleName + "_stub", idc.SN_NON_PUBLIC)
     
     # Try to find the newest version of the exports for the module.
     exportNameList = GetModuleFunctionList(importModuleName, version)
@@ -133,8 +137,8 @@ def LabelImportTable(tableEa):
     while True:
     
         # Get the import stub instructions.
-        ins1 = idc.Dword(importStubPtr)
-        ins2 = idc.Dword(importStubPtr + 4)
+        ins1 = idc.get_wide_word(importStubPtr)
+        ins2 = idc.get_wide_word(importStubPtr + 4)
         if ins1 == 0 and ins2 == 0:
             break
             
@@ -168,15 +172,15 @@ def LabelImportTable(tableEa):
 def LabelExportTable(tableEa):
 
     # Format the export table descriptor.
-    idc.MakeDword(tableEa)
-    idc.MakeDword(tableEa + 4)
+    ida_bytes.create_data(tableEa, FF_DWORD, 4, ida_idaapi.BADADDR)
+    ida_bytes.create_data(tableEa + 4, FF_DWORD, 4, ida_idaapi.BADADDR)
     version = MakeAndGetWord(tableEa + 8)
-    idc.MakeWord(tableEa + 10)
-    
-    idc.MakeUnkn(tableEa + 12, 4)
-    idc.MakeUnkn(tableEa + 12 + 4, 4)
+    ida_bytes.create_data(tableEa + 10, FF_DWORD, 4, ida_idaapi.BADADDR)
+
+    #idc.MakeUnkn(tableEa + 12, 4)
+    #idc.MakeUnkn(tableEa + 12 + 4, 4)
     importModuleName = MakeAndGetString(tableEa + 12, 8)
-    idc.MakeNameEx(tableEa, importModuleName + "_stub", idc.SN_NON_PUBLIC)
+    idc.set_name(tableEa, importModuleName + "_stub", idc.SN_NON_PUBLIC)
     
     # Try to find the newest version of the exports for the module.
     exportNameList = GetModuleFunctionList(importModuleName, version)
@@ -187,7 +191,7 @@ def LabelExportTable(tableEa):
     while True:
     
         # Get the exported function address.
-        funcEA = idc.Dword(exportPtr)
+        funcEA = idc.get_wide_dword(exportPtr)
         if funcEA == 0 and exportCount >= 4:
             break
             
@@ -229,21 +233,21 @@ def main():
     exportTableId = [ 0x00, 0x00, 0xC0, 0x41, 0x00, 0x00, 0x00, 0x00 ]
     
     # Search for an export table.
-    exportTableEA = FindBytes(textSeg.startEA, textSeg.endEA, exportTableId)
+    exportTableEA = FindBytes(textSeg.start_ea, textSeg.end_ea, exportTableId)
     if exportTableEA != idaapi.BADADDR:
     
         # Label the exports table.
         LabelExportTable(exportTableEA)
 
     # Search the segment for the import table descriptor bytes.
-    importTableEA = FindBytes(textSeg.startEA, textSeg.endEA, importTableId)
+    importTableEA = FindBytes(textSeg.start_ea, textSeg.end_ea, importTableId)
     while importTableEA != idaapi.BADADDR:
      
         # Label the imports.
         LabelImportTable(importTableEA)
         
         # Find next instance.
-        importTableEA = FindBytes(importTableEA + len(importTableId), textSeg.endEA, importTableId)
+        importTableEA = FindBytes(importTableEA + len(importTableId), textSeg.end_ea, importTableId)
         
         
 main()
