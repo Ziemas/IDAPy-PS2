@@ -1,0 +1,16 @@
+{
+    "1.1": {
+        "4": "sceSdSqGetMaxMidiNumber",
+        "5": "sceSdSqGetMaxSongNumber",
+        "6": "sceSdSqInitMidiData",
+        "7": "sceSdSqReadMidiData",
+        "8": "sceSdSqInitSongData",
+        "9": "sceSdSqReadSongData",
+        "10": "sceSdSqGetMaxCompTableIndex",
+        "11": "sceSdSqGetCompTableOffset",
+        "12": "sceSdSqGetCompTableDataByIndex",
+        "13": "sceSdSqGetNoteOnEventByPolyKeyPress",
+        "14": "sceSdSqCopyMidiData",
+        "15": "sceSdSqCopySongData"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "1.1": {
+        "4": "sceEENetCtlSetConfiguration",
+        "5": "sceEENetCtlRegisterDialCnf",
+        "6": "sceEENetCtlUnRegisterDialCnf",
+        "7": "sceEENetCtlSetDialingData",
+        "8": "sceEENetCtlClearDialingData"
+    }
+}

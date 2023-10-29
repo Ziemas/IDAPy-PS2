@@ -1,0 +1,21 @@
+{
+    "2.2": {
+        "0": "sceILsockModuleInit",
+        "2": "sceILsockModuleReset",
+        "4": "sceILsockInit",
+        "5": "sceILsockReset",
+        "8": "sceILsockOpen",
+        "9": "sceILsockClose",
+        "10": "sceILsockBind",
+        "11": "sceILsockConnect",
+        "12": "sceILsockSend",
+        "13": "sceILsockSendTo",
+        "14": "sceILsockRecv",
+        "15": "sceILsockRecvFrom",
+        "18": "sceILsockHtoNl",
+        "19": "sceILsockHtoNs",
+        "20": "sceILsockNtoHl",
+        "21": "sceILsockNtoHs",
+        "22": "sce1394GetCycleTimeV"
+    }
+}

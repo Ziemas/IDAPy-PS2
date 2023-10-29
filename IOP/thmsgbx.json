@@ -1,0 +1,12 @@
+{
+    "1.1": {
+        "4": "CreateMbx",
+        "5": "DeleteMbx",
+        "6": "SendMbx",
+        "7": "iSendMbx",
+        "8": "ReceiveMbx",
+        "9": "PollMbx",
+        "11": "ReferMbxStatus",
+        "12": "iReferMbxStatus"
+    }
+}

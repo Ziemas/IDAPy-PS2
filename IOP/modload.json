@@ -1,18 +1,24 @@
 {
-	"1.1" : {
-		"0" : "modload_start",
-		"1" : "",
-		"2" : "",
-		"3" : "",
-		"4" : "ReBootStart",
-		"5" : "LoadModuleAddress",
-		"6" : "LoadModule",
-		"7" : "LoadStartModule",
-		"8" : "StartModule",
-		"9" : "LoadModuleBufferAddress",
-		"10" : "LoadModuleBuffer",
-		"11" : "",
-		"12" : "SetSecrmanCallbacks",
-		"13" : "SetCheckKelfPathCallback"
-	}
+    "1.7": {
+        "4": "ReBootStart",
+        "5": "LoadModuleAddress",
+        "6": "LoadModule",
+        "7": "LoadStartModule",
+        "8": "StartModule",
+        "9": "LoadModuleBufferAddress",
+        "10": "LoadModuleBuffer",
+        "16": "GetModuleIdList",
+        "17": "ReferModuleStatus",
+        "18": "GetModuleIdListByName",
+        "19": "LoadModuleWithOption",
+        "20": "StopModule",
+        "21": "UnloadModule",
+        "22": "SearchModuleByName",
+        "23": "SearchModuleByAddress",
+        "26": "SelfStopModule",
+        "27": "SelfUnloadModule",
+        "28": "AllocLoadMemory",
+        "29": "FreeLoadMemory",
+        "30": "SetModuleFlags"
+    }
 }

@@ -1,0 +1,20 @@
+{
+    "1.1": {
+        "4": "sceSEIn_Init",
+        "5": "sceSEIn_ATick",
+        "6": "sceSEIn_Load",
+        "7": "sceSEIn_PutMsg",
+        "8": "sceSEIn_PutSEMsg",
+        "9": "sceSEIn_MakeNoteOn",
+        "10": "sceSEIn_MakePitchOn",
+        "11": "sceSEIn_MakeTimeVolume",
+        "12": "sceSEIn_MakeTimePanpot",
+        "13": "sceSEIn_MakeTimePitch",
+        "14": "sceSEIn_MakePitchLFO",
+        "15": "sceSEIn_MakeAmpLFO",
+        "16": "sceSEIn_MakeAllNoteOff",
+        "17": "sceSEIn_MakeAllNoteOffMask",
+        "18": "sceSEIn_MakeNoteOnZero",
+        "19": "sceSEIn_MakePitchOnZero"
+    }
+}

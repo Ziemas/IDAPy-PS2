@@ -1,0 +1,19 @@
+{
+    "1.1": {
+        "4": "sceSESq2Init",
+        "5": "sceSESq2ATick",
+        "6": "sceSESq2Load",
+        "7": "sceSESq2GetStatus",
+        "8": "sceSESq2IsInPlay",
+        "9": "sceSESq2IsDataEnd",
+        "10": "sceSESq2SetIdMonitor",
+        "11": "sceSESq2Play",
+        "12": "sceSESq2Stop",
+        "13": "sceSESq2Pause",
+        "14": "sceSESq2Resume",
+        "15": "sceSESq2SetVolume",
+        "16": "sceSESq2SetPanpot",
+        "17": "sceSESq2SetPitch",
+        "18": "sceSESq2PlayDefault"
+    }
+}

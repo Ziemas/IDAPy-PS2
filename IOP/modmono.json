@@ -1,0 +1,7 @@
+{
+    "1.1": {
+        "4": "sceMidiMono_Init",
+        "5": "sceMidiMono_ATick",
+        "6": "sceMidiMono_SetMono"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "1.1": {
+        "4": "CreateHeap",
+        "5": "DeleteHeap",
+        "6": "AllocHeapMemory",
+        "7": "FreeHeapMemory",
+        "8": "HeapTotalFreeSize"
+    }
+}

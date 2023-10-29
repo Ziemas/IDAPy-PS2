@@ -1,0 +1,7 @@
+{
+    "1.1": {
+        "4": "sceSSyn_Init",
+        "5": "sceSSyn_ATick",
+        "6": "sceSSyn_Load"
+    }
+}

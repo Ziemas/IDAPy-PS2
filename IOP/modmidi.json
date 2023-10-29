@@ -1,0 +1,26 @@
+{
+    "1.5": {
+        "4": "sceMidi_Init",
+        "5": "sceMidi_ATick",
+        "6": "sceMidi_Load",
+        "7": "sceMidi_SelectSong",
+        "8": "sceMidi_SongPlaySwitch",
+        "9": "sceMidi_SongSetVolume",
+        "10": "sceMidi_SongVolumeChange",
+        "11": "sceMidi_SongSetAbsoluteTempo",
+        "12": "sceMidi_SongSetRelativeTempo",
+        "13": "sceMidi_SongSetLocation",
+        "14": "sceMidi_SelectMidi",
+        "15": "sceMidi_MidiPlaySwitch",
+        "16": "sceMidi_MidiSetLocation",
+        "17": "sceMidi_MidiSetVolume",
+        "18": "sceMidi_MidiVolumeChange",
+        "19": "sceMidi_MidiSetAbsoluteTempo",
+        "20": "sceMidi_MidiGetAbsoluteTempo",
+        "21": "sceMidi_MidiSetRelativeTempo",
+        "22": "sceMidi_MidiGetRelativeTempo",
+        "23": "sceMidi_MidiSetUSecTempo",
+        "24": "sceMidi_MidiGetUSecTempo",
+        "25": "sceMidi_Unload"
+    }
+}

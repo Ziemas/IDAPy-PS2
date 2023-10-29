@@ -1,0 +1,13 @@
+{
+    "1.3": {
+        "4": "sceUsbmlDisable",
+        "5": "sceUsbmlEnable",
+        "6": "sceUsbmlActivateCategory",
+        "7": "sceUsbmlInactivateCategory",
+        "8": "sceUsbmlRegisterLoadFunc",
+        "9": "sceUsbmlUnregisterLoadFunc",
+        "10": "sceUsbmlLoadConffile",
+        "11": "sceUsbmlRegisterDevice",
+        "12": "sceUsbmlChangeThreadPriority"
+    }
+}

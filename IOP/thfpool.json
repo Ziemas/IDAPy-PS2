@@ -1,0 +1,12 @@
+{
+    "1.1": {
+        "4": "CreateFpl",
+        "5": "DeleteFpl",
+        "6": "AllocateFpl",
+        "7": "pAllocateFpl",
+        "8": "ipAllocateFpl",
+        "9": "FreeFpl",
+        "11": "ReferFplStatus",
+        "12": "iReferFplStatus"
+    }
+}

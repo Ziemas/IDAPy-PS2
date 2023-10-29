@@ -1,0 +1,16 @@
+{
+    "1.1": {
+        "4": "sceInetRegisterNetDevice",
+        "5": "sceInetUnregisterNetDevice",
+        "6": "sceInetAllocMem",
+        "7": "sceInetFreeMem",
+        "8": "sceInetPktEnQ",
+        "9": "sceInetPktDeQ",
+        "10": "sceInetRand",
+        "11": "sceInetPrintf",
+        "12": "sceInetAllocPkt",
+        "13": "sceInetFreePkt",
+        "14": "sceInetRegisterPPPoE",
+        "15": "sceInetUnregisterPPPoE"
+    }
+}

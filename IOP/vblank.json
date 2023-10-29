@@ -1,0 +1,10 @@
+{
+    "1.1": {
+        "4": "WaitVblankStart",
+        "5": "WaitVblankEnd",
+        "6": "WaitVblank",
+        "7": "WaitNonVblank",
+        "8": "RegisterVblankHandler",
+        "9": "ReleaseVblankHandler"
+    }
+}

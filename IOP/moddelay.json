@@ -1,0 +1,7 @@
+{
+    "1.1": {
+        "4": "sceMidiDelay_Init",
+        "5": "sceMidiDelay_ATick",
+        "6": "sceMidiDelay_Flush"
+    }
+}

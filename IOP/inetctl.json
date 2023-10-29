@@ -1,0 +1,14 @@
+{
+    "1.1": {
+        "4": "sceInetCtlSetConfiguration",
+        "5": "sceInetCtlUpInterface",
+        "6": "sceInetCtlDownInterface",
+        "7": "sceInetCtlSetAutoMode",
+        "8": "sceInetCtlRegisterEventHandler",
+        "9": "sceInetCtlUnregisterEventHandler",
+        "10": "sceInetCtlGetState",
+        "11": "sceInetCtlGetConfiguration",
+        "12": "sceInetCtlSetDialingData",
+        "13": "sceInetCtlClearDialingData"
+    }
+}

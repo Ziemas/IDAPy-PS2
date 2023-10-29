@@ -1,0 +1,30 @@
+{
+    "1.4": {
+        "4": "sceHSyn_Init",
+        "5": "sceHSyn_ATick",
+        "6": "sceHSyn_Load",
+        "7": "sceHSyn_VoiceTrans",
+        "8": "sceHSyn_SetReservVoice",
+        "9": "sceHSyn_SetEffectAttr",
+        "10": "sceHSyn_SetVolume",
+        "11": "sceHSyn_GetVolume",
+        "12": "sceHSyn_AllNoteOff",
+        "13": "sceHSyn_AllSoundOff",
+        "14": "sceHSyn_ResetAllControler",
+        "15": "sceHSyn_SetVoiceStatBuffer",
+        "16": "sceHSyn_SetDebugInfoBuffer",
+        "17": "sceHSyn_GetChStat",
+        "18": "sceHSyn_SetOutputMode",
+        "19": "sceHSyn_SESetMaxVoices",
+        "20": "sceHSyn_SEAllNoteOff",
+        "21": "sceHSyn_SEAllSoundOff",
+        "22": "sceHSyn_SERetrieveVoiceNumberByID",
+        "23": "sceHSyn_MSGetVoiceStateByID",
+        "24": "sceHSyn_MSGetVoiceEnvelopeByID",
+        "25": "sceHSyn_SERetrieveAllSEMsgIDs",
+        "26": "sceHSyn_GetReservVoice",
+        "27": "sceHSyn_GetOutputMode",
+        "28": "sceHSyn_Unload",
+        "29": "sceHSyn_SetIdMonitor"
+    }
+}

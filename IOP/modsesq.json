@@ -1,0 +1,15 @@
+{
+    "1.1": {
+        "4": "sceSESq_Init",
+        "5": "sceSESq_ATick",
+        "6": "sceSESq_Load",
+        "7": "sceSESq_SelectSeq",
+        "8": "sceSESq_UnselectSeq",
+        "9": "sceSESq_SeqPlaySwitch",
+        "10": "sceSESq_SeqGetStatus",
+        "11": "sceSESq_SeqIsInPlay",
+        "12": "sceSESq_SeqIsDataEnd",
+        "13": "sceSESq_SeqSetSEMsgID",
+        "14": "sceSESq_SeqTerminateVoice"
+    }
+}

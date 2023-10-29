@@ -1,0 +1,10 @@
+{
+    "1.1": {
+        "4": "sceMSIn_Init",
+        "5": "sceMSIn_ATick",
+        "6": "sceMSIn_Load",
+        "7": "sceMSIn_PutMsg",
+        "8": "sceMSIn_PutExcMsg",
+        "9": "sceMSIn_PutHsMsg"
+    }
+}

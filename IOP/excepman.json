@@ -1,0 +1,9 @@
+{
+    "1.1": {
+        "4": "RegisterExceptionHandler",
+        "5": "RegisterPriorityExceptionHandler",
+        "6": "RegisterDefaultExceptionHandler",
+        "7": "ReleaseExceptionHandler",
+        "8": "ReleaseDefaultExceptionHandler"
+    }
+}

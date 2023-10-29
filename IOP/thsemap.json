@@ -1,0 +1,12 @@
+{
+    "1.1": {
+        "4": "CreateSema",
+        "5": "DeleteSema",
+        "6": "SignalSema",
+        "7": "iSignalSema",
+        "8": "WaitSema",
+        "9": "PollSema",
+        "11": "ReferSemaStatus",
+        "12": "iReferSemaStatus"
+    }
+}

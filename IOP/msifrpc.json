@@ -1,0 +1,7 @@
+{
+    "1.2": {
+        "4": "sceSifMInitRpc",
+        "16": "sceSifMTermRpc",
+        "17": "sceSifMEntryLoop"
+    }
+}

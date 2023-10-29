@@ -1,0 +1,12 @@
+{
+    "1.1": {
+        "4": "CreateVpl",
+        "5": "DeleteVpl",
+        "6": "AllocateVpl",
+        "7": "pAllocateVpl",
+        "8": "ipAllocateVpl",
+        "9": "FreeVpl",
+        "11": "ReferVplStatus",
+        "12": "iReferVplStatus"
+    }
+}

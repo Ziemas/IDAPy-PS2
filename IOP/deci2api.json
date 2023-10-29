@@ -1,0 +1,20 @@
+{
+    "1.2": {
+        "4": "sceDeci2Open",
+        "5": "sceDeci2Close",
+        "6": "sceDeci2ExRecv",
+        "7": "sceDeci2ExSend",
+        "8": "sceDeci2ReqSend",
+        "9": "sceDeci2ExReqSend",
+        "10": "sceDeci2ExLock",
+        "11": "sceDeci2ExUnLock",
+        "12": "sceDeci2ExPanic",
+        "13": "sceDeci2Poll",
+        "14": "sceDeci2ExPoll",
+        "15": "sceDeci2ExRecvSuspend",
+        "16": "sceDeci2ExRecvUnSuspend",
+        "17": "sceDeci2ExWakeupThread",
+        "18": "sceDeci2ExSignalSema",
+        "19": "sceDeci2ExSetEventFlag"
+    }
+}

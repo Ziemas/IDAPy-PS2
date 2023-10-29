@@ -1,0 +1,14 @@
+{
+    "1.1": {
+        "4": "sceEENetDevAttach",
+        "5": "sceEENetDevReady",
+        "6": "sceEENetDevDetach",
+        "7": "sceEENetSifAddCmdHandler",
+        "8": "sceEENetSifRemoveCmdHandler",
+        "9": "sceEENetSifSendCmd",
+        "10": "sceEENetSifBindRpc",
+        "11": "sceEENetSifCallRpc",
+        "12": "sceEENetCheckWaitingDriverList",
+        "13": "sceEENetCheckTerminatedDriverList"
+    }
+}

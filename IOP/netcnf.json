@@ -1,0 +1,24 @@
+{
+    "1.32": {
+        "4": "sceNetCnfGetCount",
+        "5": "sceNetCnfGetList",
+        "6": "sceNetCnfLoadEntry",
+        "7": "sceNetCnfAddEntry",
+        "8": "sceNetCnfDeleteEntry",
+        "9": "sceNetCnfSetLatestEntry",
+        "10": "sceNetCnfAllocMem",
+        "11": "sceNetCnfInitIFC",
+        "12": "sceNetCnfLoadConf",
+        "13": "sceNetCnfLoadDial",
+        "14": "sceNetCnfMergeConf",
+        "15": "sceNetCnfName2Address",
+        "16": "sceNetCnfAddress2String",
+        "17": "sceNetCnfEditEntry",
+        "18": "sceNetCnfDeleteAll",
+        "19": "sceNetCnfCheckCapacity",
+        "20": "sceNetCnfConvA2S",
+        "21": "sceNetCnfConvS2A",
+        "22": "sceNetCnfCheckSpecialProvider",
+        "23": "sceNetCnfSetCallback"
+    }
+}
