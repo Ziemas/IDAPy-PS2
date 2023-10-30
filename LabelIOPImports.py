@@ -200,7 +200,7 @@ def LabelExportTable(tableEa, protos):
         if exportNameList is not None and ordinalStr in exportNameList:
             ida_name.set_name(funcEA, str(exportNameList[ordinalStr]), ida_name.SN_NON_PUBLIC | ida_name.SN_FORCE)
             if exportNameList[ordinalStr] in protos:
-               idc.SetType(importStubPtr, protos[exportNameList[ordinalStr]])
+               idc.SetType(funcEA, protos[exportNameList[ordinalStr]])
         else:
         
             importName = "%s_%d" % (importModuleName, exportCount)
