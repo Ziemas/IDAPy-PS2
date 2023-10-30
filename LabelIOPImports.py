@@ -72,7 +72,6 @@ def MakeAndGetWord(ea, comment=None):
     
     
 def ModuleVersionToStr(version):
-
     versionMajor = (version >> 8) & 0xFF
     versionMinor = version & 0xFF
     return "%d.%d" % (versionMajor, versionMinor)
@@ -114,7 +113,7 @@ def GetModuleFunctionList(moduleName, version):
     return None
     
     
-def LabelImportTable(tableEa):
+def LabelImportTable(tableEa, protos):
 
     # Format the import table descriptor.
     print("Found at 0x%08x" % tableEa)
@@ -152,11 +151,10 @@ def LabelImportTable(tableEa):
         
         # Try to name the function using the lookup table.
         if exportNameList is not None and ordinalStr in exportNameList:
-        
             ida_name.set_name(importStubPtr, str(exportNameList[ordinalStr]), ida_name.SN_NON_PUBLIC | ida_name.SN_FORCE)
-            
+            if exportNameList[ordinalStr] in protos:
+               idc.SetType(importStubPtr, protos[exportNameList[ordinalStr]])
         else:
-        
             importName = "%s_%d" % (importModuleName, ordinal)
             ida_name.set_name(importStubPtr, importName, ida_name.SN_NON_PUBLIC)
             
@@ -169,8 +167,7 @@ def LabelImportTable(tableEa):
     return importStubPtr
     
     
-def LabelExportTable(tableEa):
-
+def LabelExportTable(tableEa, protos):
     # Format the export table descriptor.
     ida_bytes.create_data(tableEa, FF_DWORD, 4, ida_idaapi.BADADDR)
     ida_bytes.create_data(tableEa + 4, FF_DWORD, 4, ida_idaapi.BADADDR)
@@ -201,9 +198,9 @@ def LabelExportTable(tableEa):
         # Try to name the function using the lookup table.
         ordinalStr = str(exportCount)
         if exportNameList is not None and ordinalStr in exportNameList:
-        
             ida_name.set_name(funcEA, str(exportNameList[ordinalStr]), ida_name.SN_NON_PUBLIC | ida_name.SN_FORCE)
-            
+            if exportNameList[ordinalStr] in protos:
+               idc.SetType(importStubPtr, protos[exportNameList[ordinalStr]])
         else:
         
             importName = "%s_%d" % (importModuleName, exportCount)
@@ -218,6 +215,10 @@ def LabelExportTable(tableEa):
     
     
 def main():
+    types = os.path.dirname(os.path.abspath(__file__)) + "\\IOP\\typedefs.h"
+    funcinfo = os.path.dirname(os.path.abspath(__file__)) + "\\IOP\\funcinfo.json"
+
+    idc.parse_decls(types, PT_FILE)
 
     startEA = 0
     endEA = 0
@@ -231,20 +232,24 @@ def main():
 
     importTableId = [ 0x00, 0x00, 0xE0, 0x41, 0x00, 0x00, 0x00, 0x00 ]
     exportTableId = [ 0x00, 0x00, 0xC0, 0x41, 0x00, 0x00, 0x00, 0x00 ]
-    
+
+    f = open(funcinfo, "r")
+    protos = json.load(f)
+    f.close()
+
     # Search for an export table.
     exportTableEA = FindBytes(textSeg.start_ea, textSeg.end_ea, exportTableId)
     if exportTableEA != idaapi.BADADDR:
     
         # Label the exports table.
-        LabelExportTable(exportTableEA)
+        LabelExportTable(exportTableEA, protos)
 
     # Search the segment for the import table descriptor bytes.
     importTableEA = FindBytes(textSeg.start_ea, textSeg.end_ea, importTableId)
     while importTableEA != idaapi.BADADDR:
      
         # Label the imports.
-        LabelImportTable(importTableEA)
+        LabelImportTable(importTableEA, protos)
         
         # Find next instance.
         importTableEA = FindBytes(importTableEA + len(importTableId), textSeg.end_ea, importTableId)
